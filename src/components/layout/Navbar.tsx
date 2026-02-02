@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { BookOpen, Menu, X, User, Search, History, LayoutDashboard } from "lucide-react";
+import { BookOpen, Menu, X, User, Search, History, LayoutDashboard, LogIn, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/contexts/AuthContext";
 
 const studentLinks = [
   { href: "/", label: "Beranda", icon: BookOpen },
@@ -25,6 +26,12 @@ export function Navbar({ variant = "student" }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const links = variant === "admin" ? adminLinks : studentLinks;
+  const { user, signOut } = useAuth();
+
+  const handleLogout = async () => {
+    await signOut();
+    setIsOpen(false);
+  };
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-border bg-card/80 backdrop-blur-md">
@@ -62,8 +69,21 @@ export function Navbar({ variant = "student" }: NavbarProps) {
             })}
           </div>
 
-          {/* Switch Mode Button */}
+          {/* Desktop Auth & Switch */}
           <div className="hidden md:flex items-center gap-3">
+            {user ? (
+              <Button variant="ghost" size="sm" onClick={handleLogout}>
+                <LogOut className="h-4 w-4 mr-2" />
+                Keluar
+              </Button>
+            ) : (
+              <Link to="/auth">
+                <Button variant="ghost" size="sm">
+                  <LogIn className="h-4 w-4 mr-2" />
+                  Masuk
+                </Button>
+              </Link>
+            )}
             {variant === "student" ? (
               <Link to="/admin">
                 <Button variant="outline" size="sm">
@@ -114,7 +134,20 @@ export function Navbar({ variant = "student" }: NavbarProps) {
                   </Link>
                 );
               })}
-              <div className="pt-4 mt-4 border-t border-border">
+              <div className="pt-4 mt-4 border-t border-border space-y-2">
+                {user ? (
+                  <Button variant="ghost" className="w-full justify-start" onClick={handleLogout}>
+                    <LogOut className="h-4 w-4 mr-2" />
+                    Keluar
+                  </Button>
+                ) : (
+                  <Link to="/auth" onClick={() => setIsOpen(false)}>
+                    <Button variant="ghost" className="w-full justify-start">
+                      <LogIn className="h-4 w-4 mr-2" />
+                      Masuk
+                    </Button>
+                  </Link>
+                )}
                 {variant === "student" ? (
                   <Link to="/admin" onClick={() => setIsOpen(false)}>
                     <Button variant="outline" className="w-full">
