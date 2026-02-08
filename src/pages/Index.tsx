@@ -46,7 +46,6 @@ export default function Index() {
           <div className="max-w-3xl mx-auto text-center mb-10">
             <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-4 animate-slide-up">
               Perpustakaan Digital
-              <span className="text-primary"> Universitas Muhammadiyah Cirebon</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8 animate-slide-up">
               Universitas Muhammadiyah Cirebon
