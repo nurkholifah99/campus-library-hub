@@ -44,7 +44,7 @@ export function Navbar({ variant = "student" }: NavbarProps) {
             </div>
             <div className="hidden sm:block">
               <h1 className="text-lg font-bold text-foreground">Perpustakaan</h1>
-              <p className="text-xs text-muted-foreground">Universitas Indonesia</p>
+              <p className="text-xs text-muted-foreground">Universitas Muhammadiyah Cirebon</p>
             </div>
           </Link>
 
