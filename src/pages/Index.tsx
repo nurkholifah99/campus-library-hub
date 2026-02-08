@@ -46,10 +46,10 @@ export default function Index() {
           <div className="max-w-3xl mx-auto text-center mb-10">
             <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-4 animate-slide-up">
               Perpustakaan Digital
-              <span className="text-primary"> Universitas</span>
+              <span className="text-primary"> Universitas Muhammadiyah Cirebon</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8 animate-slide-up">
-              Akses ribuan buku, jurnal, dan referensi akademik kapan saja dan di mana saja.
+              Universitas Muhammadiyah Cirebon
             </p>
             <SearchBar large className="max-w-2xl mx-auto animate-slide-up" />
           </div>
@@ -115,7 +115,7 @@ export default function Index() {
       <footer className="border-t border-border py-8 mt-12">
         <div className="container mx-auto px-4 text-center">
           <p className="text-muted-foreground text-sm">
-            © 2024 Perpustakaan Universitas Indonesia. Semua hak dilindungi.
+            © 2024 Perpustakaan Universitas Muhammadiyah Cirebon. Semua hak dilindungi.
           </p>
         </div>
       </footer>
